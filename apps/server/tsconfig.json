@@ -1,0 +1,23 @@
+{
+  "compilerOptions": {
+    // Base
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "target": "ES2023",
+    "verbatimModuleSyntax": true,
+    "allowJs": true,
+    "resolveJsonModule": true,
+    "moduleDetection": "force",
+    // Strictness
+    "strict": true,
+    "noUncheckedIndexedAccess": true,
+    // Use tsx so use bundler
+    "moduleResolution": "Bundler",
+    "module": "ESNext",
+    "noEmit": true,
+    // not using DOM
+    "lib": ["ES2022"],
+  },
+  "include": ["**/*.ts", "**/*.d.ts"],
+  "exclude": ["node_modules"]
+}
