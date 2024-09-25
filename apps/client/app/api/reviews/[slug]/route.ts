@@ -1,6 +1,6 @@
 'use server'
 
-import prisma from "@/app/lib/prisma"
+import { prisma } from "@repo/database"
 import { getServerSession } from "next-auth";
 import { NextRequest } from "next/server"
 

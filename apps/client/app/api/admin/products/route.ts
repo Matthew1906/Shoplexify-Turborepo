@@ -1,8 +1,8 @@
 'use server'
 
-import prisma from "@/app/lib/prisma";
 import { getServerSession } from "next-auth";
 import { NextRequest } from "next/server";
+import { prisma } from "@repo/database"
 
 export async function GET(req:NextRequest){
     const searchParams = req.nextUrl.searchParams;

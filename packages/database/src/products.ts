@@ -51,4 +51,4 @@ var products = [
     { name: "Elegant Office Desk", description: "Modern desk with a sleek design and ample workspace", price: 1800000, stock: 12, categories: ["Office", "Home & Garden"], slug: "elegant-office-desk" }
 ];
 
-module.exports = { products };
+export { products };

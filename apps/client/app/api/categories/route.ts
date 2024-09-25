@@ -1,6 +1,6 @@
 'use server'
 
-import prisma from "@/app/lib/prisma";
+import { prisma } from "@repo/database"
 
 export async function GET(req:Request){
     try{

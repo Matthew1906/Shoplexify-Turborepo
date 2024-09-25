@@ -1,4 +1,7 @@
 import ImageKit from "imagekit";
+import { configDotenv } from "dotenv";
+
+configDotenv();
 
 const publicKey : string = process.env.IMAGEKIT_PUBLICKEY!;
 const privateKey : string = process.env.IMAGEKIT_PRIVATEKEY!;
@@ -21,7 +24,7 @@ export const deleteFile = async(filename:string)=>{
         limit:1,
     })
     if(files.length==1){
-        const fileId = files[0].fileId;
+        const fileId = files[0]?.fileId??"";
         await imagekit.deleteFile(fileId);
         return true;
     } else {

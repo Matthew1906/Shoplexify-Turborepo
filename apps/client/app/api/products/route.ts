@@ -1,11 +1,11 @@
 'use server'
 
 import slugify from "slugify";
-import prisma from "@/app/lib/prisma";
+import { prisma } from "@repo/database"
+import { uploadImage } from "@repo/imagekit";
 import { getServerSession } from "next-auth";
 import { NextRequest, NextResponse } from "next/server";
 import { z } from "zod";
-import { uploadImage } from "@/app/lib/imagekit";
 
 export async function GET(req:NextRequest){
     const searchParams = req.nextUrl.searchParams;

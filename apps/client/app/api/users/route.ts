@@ -1,9 +1,9 @@
 'use server'
 
-import prisma from '@/app/lib/prisma';
+import { prisma } from '@repo/database';
 import { getServerSession } from 'next-auth';
 import { z } from 'zod';
-import { comparePassword, generatePassword } from '@/app/lib/auth';
+import { comparePassword, generatePassword } from '@repo/password-utils';
 
 export async function POST(req:Request){
     try {
@@ -79,7 +79,7 @@ export async function PATCH(req:Request){
             if(parsedCredentials.data.dob){
                 const parsedDob = dobSchema.safeParse(dob);
                 if(!parsedDob.success){
-                    return Response.json({ status:false, error:{dob:parsedDob.error.errors[0].message} }, { status:422 });
+                    return Response.json({ status:false, error:{dob:parsedDob?.error?.errors[0]?.message} }, { status:422 });
                 }
             }
             if (parsedCredentials.data.password && parsedCredentials.data.password != parsedCredentials.data.confirmPassword){

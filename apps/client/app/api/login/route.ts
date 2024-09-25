@@ -1,8 +1,8 @@
 'use server'
 
-import prisma from '@/app/lib/prisma';
+import { prisma } from "@repo/database";
 import { z } from 'zod';
-import { comparePassword } from '@/app/lib/auth';
+import { comparePassword } from '@repo/password-utils';
 
 export async function POST(req:Request){
     try {

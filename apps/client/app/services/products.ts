@@ -63,7 +63,7 @@ export const getProducts = async(searchParams: searchParams|null): Promise<produ
 export const getProduct = async(slug:string):Promise<productResponse|undefined> =>{
     try {
         const url = `${process.env.SERVER_URL}/api/products/${slug}`;
-        const response = await fetch(url, { method:'GET' }); // use revalidate Path
+        const response = await fetch(url, { method:'GET', next:{ tags:['products'] }}); // use revalidate Path
         const jsonResponse = await response.json();
         return jsonResponse;
     } catch(error) {

@@ -1,26 +1,19 @@
 {
-  "name": "shoplexify",
+  "name": "shoplexify-client",
   "version": "0.1.0",
   "private": true,
   "scripts": {
     "dev": "next dev",
-    "build": "prisma db push && next build",
+    "build": "next build",
     "start": "next start",
     "lint": "next lint"
   },
-  "prisma": {
-    "seed": "ts-node prisma/seed.ts"
-  },
   "dependencies": {
     "@googlemaps/google-maps-services-js": "^3.4.0",
-    "@prisma/client": "^5.18.0",
     "@vis.gl/react-google-maps": "^1.1.0",
     "chart.js": "^4.4.4",
-    "imagekit": "^5.1.0",
     "next": "14.2.5",
     "next-auth": "^4.24.7",
-    "pbkdf2": "^3.1.2",
-    "prisma": "^5.18.0",
     "react": "^18",
     "react-chartjs-2": "^5.2.0",
     "react-dom": "^18",
@@ -32,6 +25,11 @@
     "zod": "^3.23.8"
   },
   "devDependencies": {
+    "@repo/database":"workspace:*",
+    "@repo/imagekit":"workspace:*",
+    "@repo/eslint-config": "workspace:*",
+    "@repo/password-utils":"workspace:*",
+    "@repo/typescript-config": "workspace:*",
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",

@@ -1,9 +1,8 @@
 'use server'
 
-import prisma from "@/app/lib/prisma";
-import { orders } from "@prisma/client";
 import { getServerSession } from "next-auth";
 import { NextRequest } from "next/server";
+import { prisma, orders } from "@repo/database"
 
 export async function GET(req: NextRequest){
     try{

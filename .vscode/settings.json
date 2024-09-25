@@ -3,5 +3,28 @@
     {
       "mode": "auto"
     }
-  ]
+  ],
+  "material-icon-theme.folders.associations": {
+        "(pages)": "Interface",
+        "forms": "Class", 
+        "(auth)": "Secure",
+        "(main)": "Content",
+        "modals":"UI",
+        "products":"Container",
+        "profile":"Controller",
+        "transactions":"Connection",
+        "migrations":"Mappings",
+        "users":"Controller",
+        "login":"Secure",
+        "categories":"Constant",
+        "[slug]":"Context",
+        "[id]":"Context",
+        "[...nextauth]":"Admin",
+        "buttons":"Utils",
+        "recommendations":"Svg",
+        "imagekit":"Images",
+        "eslint-config":"Config",
+        "typescript-config":"Config",
+        "password-utils":"Admin"
+    }
 }

@@ -44,7 +44,7 @@ const PaginationBar = ({page, total}:{page:number, total:number})=>{
     return (
         <div className={`${roboto_bold} flex-center gap-2`}>   
             {/* {page>1 && <BiFirstPage onClick={prevPage} className="w-8 h-8 cursor-pointer" />} */}
-            {page>1 && <MdNavigateBefore onClick={prevPage} className="w-4 lg:w-8 w-4 lg:h-8 cursor-pointer"/>}
+            {page>1 && <MdNavigateBefore onClick={prevPage} className="w-4 lg:w-8 h-4 lg:h-8 cursor-pointer"/>}
             <PaginationItem>{page}</PaginationItem>
             {page*pageLength<total && <MdNavigateNext onClick={nextPage} className="w-4 lg:w-8 h-4 lg:h-8 cursor-pointer" />}
             {/* {page*pageLength<total && <BiLastPage onClick={nextPage} className="w-8 h-8 cursor-pointer" />} */}

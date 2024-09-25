@@ -1,0 +1,22 @@
+{
+  "name": "@repo/password-utils",
+  "version": "1.0.0",
+  "description": "Password generation and validation algorithm for Shoplexify turborepo",
+  "main": "src/index.ts",
+  "exports":{
+    ".":"./src/index.ts"
+  },
+  "keywords": ["Authentication", "Password", "Shopelxify", "Turborepo"],
+  "author": "Matthew1906",
+  "license": "ISC",
+  "devDependencies": {
+    "@repo/eslint-config": "workspace:*",
+    "@repo/typescript-config": "workspace:*",
+    "eslint": "^8.57.0",
+    "tsx": "^4.7.1",
+    "typescript": "^5.3.3"
+  },
+  "dependencies": {
+    "dotenv": "^16.4.5"
+  }
+}

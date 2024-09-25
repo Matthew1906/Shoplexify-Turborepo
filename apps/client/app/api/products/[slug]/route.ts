@@ -1,11 +1,11 @@
 'use server'
 
 import slugify from "slugify";
-import prisma from "@/app/lib/prisma";
+import { prisma } from "@repo/database"
 import { getServerSession } from "next-auth";
 import { NextRequest } from "next/server";
 import { z } from "zod";
-import { deleteFile, uploadImage } from "@/app/lib/imagekit";
+import { deleteFile, uploadImage } from "@repo/imagekit";
 
 export async function GET(req:NextRequest, { params }: { params: { slug: string } }){
     try {
