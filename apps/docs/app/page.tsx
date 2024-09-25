@@ -1,8 +1,11 @@
 import Image from "next/image";
-import { Button } from "@repo/ui/button";
+// import { Button } from "@repo/ui/button";
 import styles from "./page.module.css";
+import { prisma }  from "@repo/database";
 
-export default function Home() {
+export default async function Home() {
+  const categories = await prisma.categories.findMany({})
+  console.log(categories);
   return (
     <div className={styles.page}>
       <main className={styles.main}>
@@ -46,9 +49,9 @@ export default function Home() {
             Read our docs
           </a>
         </div>
-        <Button appName="docs" className={styles.secondary}>
+        {/* <Button appName="docs" className={styles.secondary}>
           Open alert
-        </Button>
+        </Button> */}
       </main>
       <footer className={styles.footer}>
         <a

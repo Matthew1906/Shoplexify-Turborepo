@@ -10,9 +10,16 @@
     "lint": {
       "dependsOn": ["^lint"]
     },
+    "db:migrate:deploy": {},
+    "db:push": {},
+    "db:seed": {},
     "dev": {
+      "dependsOn": ["^generate"],
       "cache": false,
       "persistent": true
+    },
+    "generate": {
+      "dependsOn": ["^generate"]
     }
   }
 }
