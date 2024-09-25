@@ -1,0 +1,93 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model categories {
+  id                 Int                  @id @default(autoincrement())
+  slug               String               @unique @db.VarChar(255)
+  name               String               @unique @db.VarChar(255)
+  product_categories product_categories[]
+}
+
+model orders {
+  user_id    Int
+  product_id Int
+  quantity   Int
+  products   products @relation(fields: [product_id], references: [id], onDelete: NoAction, onUpdate: NoAction)
+  users      users    @relation(fields: [user_id], references: [id], onDelete: NoAction, onUpdate: NoAction)
+
+  @@id([user_id, product_id])
+}
+
+model product_categories {
+  product_id  Int
+  category_id Int
+  categories  categories @relation(fields: [category_id], references: [id], onDelete: NoAction, onUpdate: NoAction)
+  products    products   @relation(fields: [product_id], references: [id], onDelete: NoAction, onUpdate: NoAction)
+
+  @@id([product_id, category_id])
+}
+
+model products {
+  id                  Int                   @id @default(autoincrement())
+  slug                String                @unique @db.VarChar(255)
+  name                String                @unique @db.VarChar(255)
+  description         String                @db.VarChar(5000)
+  image_url           String                @db.VarChar(5000)
+  price               Int
+  stock               Int
+  orders              orders[]
+  product_categories  product_categories[]
+  reviews             reviews[]
+  transaction_details transaction_details[]
+}
+
+model reviews {
+  id         Int       @id @default(autoincrement())
+  user_id    Int?
+  product_id Int?
+  rating     Int
+  review     String    @db.VarChar(5000)
+  products   products? @relation(fields: [product_id], references: [id], onDelete: NoAction, onUpdate: NoAction)
+  users      users?    @relation(fields: [user_id], references: [id], onDelete: NoAction, onUpdate: NoAction)
+}
+
+model transaction_details {
+  transaction_id Int
+  product_id     Int
+  quantity       Int
+  price          Int
+  products       products     @relation(fields: [product_id], references: [id], onDelete: NoAction, onUpdate: NoAction)
+  transactions   transactions @relation(fields: [transaction_id], references: [id], onDelete: NoAction, onUpdate: NoAction)
+
+  @@id([transaction_id, product_id])
+}
+
+model transactions {
+  id                  Int                   @id @default(autoincrement())
+  date                DateTime              @db.Date
+  user_id             Int?
+  payment_method      String                @db.VarChar(255)
+  payment_status      String                @db.VarChar(255)
+  address             String                @db.VarChar(5000)
+  delivery_cost       Int
+  delivery_status     String                @db.VarChar(255)
+  transaction_details transaction_details[]
+  users               users?                @relation(fields: [user_id], references: [id], onDelete: NoAction, onUpdate: NoAction)
+}
+
+model users {
+  id           Int            @id @default(autoincrement())
+  name         String         @unique @db.VarChar(255)
+  email        String         @unique @db.VarChar(255)
+  password     String         @db.VarChar(255)
+  dob          DateTime?      @db.Date
+  orders       orders[]
+  reviews      reviews[]
+  transactions transactions[]
+}
