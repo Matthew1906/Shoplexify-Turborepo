@@ -14,11 +14,12 @@
     "noUncheckedIndexedAccess": true,
     // Use tsx so use bundler
     "moduleResolution": "Bundler",
-    "module": "ESNext",
-    "noEmit": true,
+    "module": "Preserve",
+    "outDir": "./dist",
+    "sourceMap": true,
     // not using DOM
     "lib": ["ES2022"],
   },
   "include": ["**/*.ts", "**/*.d.ts"],
-  "exclude": ["node_modules"]
+  "exclude": ["node_modules", "./dist"]
 }
