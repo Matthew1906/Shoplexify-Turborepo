@@ -11,7 +11,7 @@ import { currencyString, popularityString } from "@/app/lib/string";
 import { getProduct } from "@/app/services/products";
 import { getReview } from "@/app/services/reviews";
 import { ReviewButton, ReviewItem, StockSection, UpdateProductButton } from "./ui";
-import { OrderSection } from "../../ui";
+import { OrderSection } from "../../../../components/ui";
 
 export async function generateMetadata(
     {params}:{params:{slug:string}}

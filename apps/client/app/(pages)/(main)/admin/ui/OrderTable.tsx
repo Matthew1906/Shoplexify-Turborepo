@@ -7,7 +7,7 @@ import { FaEye } from "react-icons/fa";
 import { roboto_semibold } from "@/app/lib/font";
 import { adminOrdersResponse, adminTransactions } from "@repo/interface";
 import { currencyString, dateString } from "@/app/lib/string";
-import { PaginationBar } from "../../ui";
+import { PaginationBar } from "../../../../components/ui";
 
 const OrderTable = ({orders}:{orders:adminOrdersResponse | undefined})=>{
     const searchParams = useSearchParams();

@@ -2,7 +2,7 @@
 
 import PaginationHeader from "./PaginationHeader";
 import ProductCard from "./ProductCard";
-import { PaginationBar } from "../../ui";
+import { PaginationBar } from "../../../../components/ui";
 import { Product, productsResponse } from "@repo/interface";
 
 const Pagination = ({products}:{products:productsResponse|undefined})=>{

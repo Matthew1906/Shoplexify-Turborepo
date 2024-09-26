@@ -1,6 +1,6 @@
 'use client'
 
-import { TextButton } from "@/app/components/buttons"
+import { TextButton } from "@repo/ui/buttons"
 import { roboto_semibold } from "@/app/lib/font"
 import { profileResponse } from "@repo/interface"
 import { updateProfile } from "@/app/services/users"

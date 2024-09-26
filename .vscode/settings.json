@@ -26,6 +26,7 @@
         "eslint-config":"Config",
         "typescript-config":"Config",
         "password-utils":"Admin",
-        "tailwind-config":"Theme"
+        "tailwind-config":"Theme",
+        "maps":"Global"
     }
 }

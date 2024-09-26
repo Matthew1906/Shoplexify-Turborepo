@@ -4,7 +4,7 @@ import Link from "next/link";
 import SearchBar from "./search_bar";
 import { signOut } from "next-auth/react";
 import { MdFace, MdOutlineInsertChart, MdOutlineWarehouse, MdShoppingCart } from "react-icons/md";
-import { IconButton, TextButton } from "../buttons";
+import { IconButton, TextButton } from "@repo/ui/buttons";
 import { LogoIcon, MenuIcon } from "../icons";
 import { useScreenSize } from "@/app/hooks";
 

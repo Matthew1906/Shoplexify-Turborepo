@@ -3,7 +3,7 @@
 import ReviewModal from "./ReviewModal";
 import { reviews } from "@prisma/client";
 import { useState } from "react";
-import { TextButton } from "@/app/components/buttons";
+import { TextButton } from "@repo/ui/buttons";
 
 const ReviewButton = ({slug, review}:{slug:string, review?:reviews|null})=>{
     const [ showReviewForm, setShowReviewForm ] = useState<boolean>(false);

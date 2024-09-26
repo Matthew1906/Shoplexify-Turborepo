@@ -5,7 +5,7 @@ import { MdStar } from "react-icons/md";
 import { roboto_semibold } from "@/app/lib/font";
 import { orderResponse } from "@repo/interface";
 import { currencyString, popularityString } from "@/app/lib/string";
-import { OrderSection } from "../../ui";
+import { OrderSection } from "../../../../components/ui";
 
 const OrderItem = ({item}:{item:orderResponse})=>{
     return <div className="grid grid-cols-2 md:grid-cols-3 items-start gap-2 mb-5">

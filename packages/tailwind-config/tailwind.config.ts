@@ -32,6 +32,7 @@ const config: Omit<Config, "content"> = {
     {
       pattern: /border-(green|blue|yellow|red|navy-blue|black|white)/
     },
+    'h-60'
   ],
   plugins: [],
 };

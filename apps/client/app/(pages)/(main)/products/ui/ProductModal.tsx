@@ -4,12 +4,12 @@ import ImageInput from "./ImageInput";
 import { useRouter } from "next/navigation";
 import { categories } from "@prisma/client";
 import { FormEvent, useEffect, useRef, useState } from "react";
-import { TextButton } from "@/app/components/buttons";
+import { TextButton } from "@repo/ui/buttons";
 import { useImage } from "@/app/hooks";
 import { roboto_regular } from "@/app/lib/font";
 import { productMutationData, productMutationResponse } from "@repo/interface";
 import { base64String } from "@/app/lib/string";
-import { BaseModal } from "@/app/(pages)/(main)/ui";
+import { BaseModal } from "@repo/ui/utils";
 import { getCategories } from "@/app/services/categories";
 import { createProduct, updateProduct } from "@/app/services/products";
 
@@ -144,7 +144,6 @@ const ProductModal = (
                     <TextButton text="Save Product" isForm/>
                 </div>
             </form>
-            
         </BaseModal>
     )
 }

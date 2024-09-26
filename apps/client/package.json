@@ -11,6 +11,8 @@
   "dependencies": {
     "@googlemaps/google-maps-services-js": "^3.4.0",
     "@vis.gl/react-google-maps": "^1.1.0",
+    "@repo/ui":"workspace:*",
+    "@repo/maps":"workspace:*",
     "chart.js": "^4.4.4",
     "next": "14.2.5",
     "next-auth": "^4.24.7",

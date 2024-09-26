@@ -26,7 +26,8 @@ const nextConfig = {
       PAGE_LENGTH: process.env.PAGE_LENGTH,
       GOOGLE_MAPS_API_KEY: process.env.GOOGLE_MAPS_API_KEY,
       GOOGLE_MAPS_MAP_ID: process.env.GOOGLE_MAPS_MAP_ID
-    }
+    },
+    transpilePackages: ["@repo/ui", "@repo/maps"],
 };
 
 export default nextConfig;

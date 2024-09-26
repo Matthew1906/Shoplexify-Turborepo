@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import { TextButton } from '@/app/components/buttons'
+import { TextButton } from '@repo/ui/buttons'
 import { Header } from '@/app/components/partials'
 import { roboto_light, roboto_regular, roboto_semibold } from '@/app/lib/font'
  

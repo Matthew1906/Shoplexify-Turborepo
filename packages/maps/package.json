@@ -1,28 +1,23 @@
 {
-  "name": "@repo/ui",
+  "name": "@repo/maps",
   "version": "1.0.0",
-  "description": "Shared UI Library for Shoplexify Turborepo",
-  "files": [
-    "dist/**"
-  ],
+  "description": "Shared Maps Library for Shoplexify Turborepo",
   "exports":{
-    "./utils":{
-      "import":"./dist/src/utils/index.js",
-      "types":"./dist/src/utils/index.d.ts"
-    },
-    "./buttons":{
-      "import":"./dist/src/buttons/index.js",
-      "types":"./dist/src/utils/index.d.ts"
+    ".":{
+      "import":"./dist/src/index.js",
+      "types":"./dist/src/index.d.ts"
     }
   },
   "scripts": {
     "build":"tsc",
     "dev":"tsc --watch"
   },
-  "keywords": [ "UI", "React", "Turborepo"],
+  "keywords": [ "UI", "React", "Google Maps", "Turborepo"],
   "author": "Matthew1906",
   "license": "ISC",
   "dependencies": {
+    "@googlemaps/google-maps-services-js": "^3.4.0",
+    "@vis.gl/react-google-maps": "^1.1.0",
     "@types/react": "^18",
     "react": "^18",
     "react-dom": "^18",
@@ -33,6 +28,8 @@
     "@repo/eslint-config": "workspace:*",
     "@repo/tailwind-config": "workspace:*",
     "@repo/typescript-config": "workspace:*",
+    "@repo/interface":"workspace:*",
+    "dotenv": "^16.4.5",
     "eslint": "^8.57.0",
     "typescript": "^5.3.3"
   }

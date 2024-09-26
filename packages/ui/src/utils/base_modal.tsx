@@ -1,4 +1,3 @@
-'use client'
 
 import { FaRegTimesCircle } from "react-icons/fa";
 

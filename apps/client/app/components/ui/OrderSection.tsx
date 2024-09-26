@@ -3,7 +3,7 @@
 import { useRouter } from "next/navigation";
 import { useEffect, useState } from "react";
 import { FaMinus, FaPlus, FaTrashAlt } from "react-icons/fa";
-import { TextButton } from "@/app/components/buttons";
+import { TextButton } from "@repo/ui/buttons";
 import { roboto_regular } from "@/app/lib/font";
 import { currencyString } from "@/app/lib/string";
 import { createOrder, deleteOrder, editOrder, getOrder } from "@/app/services/orders";

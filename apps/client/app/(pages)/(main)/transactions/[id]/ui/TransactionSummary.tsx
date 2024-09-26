@@ -1,11 +1,11 @@
 'use client'
 
 import { useRouter } from "next/navigation"
-import { useEffect, useMemo, useState } from "react"
-import { TextButton } from "@/app/components/buttons"
-import { address, transactionHistoryDetails, geolocationResponse } from "@repo/interface"
+import { useEffect, useMemo } from "react"
+import { TextButton } from "@repo/ui/buttons"
+import { transactionHistoryDetails } from "@repo/interface"
 import { currencyString } from "@/app/lib/string"
-import { AddressMap } from "../../../ui"
+import { AddressMap, useMapConfig } from "@repo/maps"
 import { updateTransactionStatus } from "@/app/services/transactions"
 
 const TransactionSummary = (
@@ -24,24 +24,8 @@ const TransactionSummary = (
             return total+subtotal;
         }, 0)
     }, [details]);
-    const [ address, setAddress ] = useState<address>({lat:-6.176518640085772, lng:106.79102171534362, address:"Central Park Mall"})
-    useEffect(()=>{
-        const url = 'https://maps.googleapis.com/maps/api/geocode/json?address='
-        fetch(url+addressString+"&key="+process.env.GOOGLE_MAPS_API_KEY, { method:"GET" }).
-            then(res=>res.json().then(
-                jsonData=>{
-                    const results: Array<any> = jsonData.results;
-                    if(results.length>0){
-                        const data:geolocationResponse = results[0];
-                        setAddress({
-                            address:data.formatted_address, 
-                            lat:data.geometry.location.lat, 
-                            lng: data.geometry.location.lng
-                        })
-                    }
-                }
-            ))
-    }, [addressString])
+    const { address, getLocation } = useMapConfig();
+    useEffect(()=>getLocation(addressString), [addressString]);
     const theme = useMemo(()=>{
         if(status == 'Unpaid') {
             return 'bg-red'

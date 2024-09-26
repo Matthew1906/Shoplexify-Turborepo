@@ -1,7 +1,8 @@
-'use client'
-
+import { configDotenv } from "dotenv";
 import { APIProvider, Map, AdvancedMarker } from "@vis.gl/react-google-maps";
 import { coordinates } from "@repo/interface";
+
+configDotenv();
 
 const AddressMap = ({coordinate}:{coordinate?:coordinates})=>{
     return <APIProvider apiKey={process.env.GOOGLE_MAPS_API_KEY??""}>

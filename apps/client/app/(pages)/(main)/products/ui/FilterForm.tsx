@@ -5,7 +5,7 @@ import { useSession } from "next-auth/react"
 import { usePathname, useRouter, useSearchParams } from "next/navigation"
 import { categories } from "@prisma/client"
 import { FormEvent, useRef, useState } from "react"
-import { TextButton } from "@/app/components/buttons"
+import { TextButton } from "@repo/ui/buttons"
 import { roboto_bold, roboto_semibold } from "@/app/lib/font"
 
 const FilterForm = ({categories}:{categories:Array<categories>|undefined})=>{
