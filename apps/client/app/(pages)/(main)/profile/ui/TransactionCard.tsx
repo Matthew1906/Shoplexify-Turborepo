@@ -1,7 +1,7 @@
 'use client'
 
 import { roboto_bold } from "@/app/lib/font";
-import { transactionResponse } from "@/app/lib/interface";
+import { transactionResponse } from "@repo/interface";
 import { currencyString, dateString } from "@/app/lib/string";
 import Link from "next/link";
 import { useMemo } from "react";

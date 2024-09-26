@@ -3,7 +3,7 @@
 import { useRouter } from "next/navigation"
 import { useEffect, useMemo, useState } from "react"
 import { TextButton } from "@/app/components/buttons"
-import { address, transactionHistoryDetails, geolocationResponse } from "@/app/lib/interface"
+import { address, transactionHistoryDetails, geolocationResponse } from "@repo/interface"
 import { currencyString } from "@/app/lib/string"
 import { AddressMap } from "../../../ui"
 import { updateTransactionStatus } from "@/app/services/transactions"

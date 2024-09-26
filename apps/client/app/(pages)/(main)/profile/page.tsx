@@ -1,7 +1,7 @@
 import Image from "next/image";
 import { authOptions } from "@/app/lib/auth";
 import { roboto_bold, roboto_regular } from "@/app/lib/font";
-import { transactionResponse } from "@/app/lib/interface";
+import { transactionResponse } from "@repo/interface";
 import { dateString } from "@/app/lib/string";
 import { getTransactions } from "@/app/services/transactions";
 import { getServerSession } from "next-auth";

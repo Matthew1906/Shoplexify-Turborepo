@@ -3,7 +3,7 @@
 import PaginationHeader from "./PaginationHeader";
 import ProductCard from "./ProductCard";
 import { PaginationBar } from "../../ui";
-import { Product, productsResponse } from "@/app/lib/interface";
+import { Product, productsResponse } from "@repo/interface";
 
 const Pagination = ({products}:{products:productsResponse|undefined})=>{
     return (

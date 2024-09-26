@@ -1,6 +1,6 @@
 import { categories } from "@prisma/client";
 import { Suspense } from "react";
-import { productsResponse, searchParams } from "@/app/lib/interface";
+import { productsResponse, searchParams } from "@repo/interface";
 import { getCategories } from "@/app/services/categories";
 import { getProducts } from "@/app/services/products"
 import { FilterForm, Pagination } from "./ui";

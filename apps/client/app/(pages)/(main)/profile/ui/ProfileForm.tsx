@@ -2,7 +2,7 @@
 
 import { TextButton } from "@/app/components/buttons"
 import { roboto_semibold } from "@/app/lib/font"
-import { profileResponse } from "@/app/lib/interface"
+import { profileResponse } from "@repo/interface"
 import { updateProfile } from "@/app/services/users"
 import { useRouter } from "next/navigation"
 import { FormEvent, useMemo, useRef, useState } from "react"

@@ -6,7 +6,7 @@
   "exports": {
     ".": "./src/index.ts"
   },
-  "keywords": [],
+  "keywords": ["Imagekit", "Turborepo"],
   "author": "Matthew1906",
   "license": "ISC",
   "devDependencies": {

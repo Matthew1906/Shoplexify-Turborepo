@@ -3,7 +3,7 @@
 import ProductModal from "../../ui/ProductModal";
 import { TextButton } from "@/app/components/buttons"
 import { useState } from "react";
-import { productMutationData } from "@/app/lib/interface";
+import { productMutationData } from "@repo/interface";
 
 const UpdateProductButton = ({product}:{product:productMutationData})=>{
     const [ showProductForm, setShowProductForm ] = useState<boolean>(false);

@@ -1,7 +1,7 @@
 'use server'
 
 import { headers } from "next/headers";
-import { orderResponse } from "@/app/lib/interface";
+import { orderResponse } from "@repo/interface";
 import { revalidatePath, revalidateTag } from "next/cache";
 
 export const createOrder = async(product:string, quantity:number)=>{

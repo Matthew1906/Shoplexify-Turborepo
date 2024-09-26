@@ -1,4 +1,4 @@
-import { reviews } from "@prisma/client"
+import { reviews } from "@repo/database";
 
 // Login/Register account response
 export interface authResponse {

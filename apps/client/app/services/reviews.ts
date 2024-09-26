@@ -1,7 +1,7 @@
 'use server'
 
 import { headers } from "next/headers";
-import { reviewResponse } from "@/app/lib/interface";
+import { reviewResponse } from "@repo/interface";
 import { revalidateTag } from "next/cache";
 
 export const createReview = async(formData: FormData)=>{

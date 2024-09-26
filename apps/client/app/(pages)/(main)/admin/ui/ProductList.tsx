@@ -6,7 +6,7 @@ import { usePathname, useRouter, useSearchParams } from "next/navigation";
 import { FormEvent, useEffect } from "react";
 import { MdStar } from "react-icons/md";
 import { roboto_light, roboto_semibold } from "@/app/lib/font";
-import { Product } from "@/app/lib/interface";
+import { Product } from "@repo/interface";
 import { currencyString, popularityString, trimString } from "@/app/lib/string";
 
 const MonthFilter = ()=>{

@@ -1,6 +1,6 @@
 import { Metadata } from "next";
 import { roboto_bold, roboto_regular } from "@/app/lib/font";
-import { orderResponse } from "@/app/lib/interface";
+import { orderResponse } from "@repo/interface";
 import { getOrders } from "@/app/services/orders";
 import { CheckoutForm, ClearCartButton, OrderItem } from "./ui";
 

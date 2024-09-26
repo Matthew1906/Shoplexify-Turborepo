@@ -7,7 +7,7 @@ import { FormEvent, useEffect, useRef, useState } from "react";
 import { TextButton } from "@/app/components/buttons";
 import { useImage } from "@/app/hooks";
 import { roboto_regular } from "@/app/lib/font";
-import { productMutationData, productMutationResponse } from "@/app/lib/interface";
+import { productMutationData, productMutationResponse } from "@repo/interface";
 import { base64String } from "@/app/lib/string";
 import { BaseModal } from "@/app/(pages)/(main)/ui";
 import { getCategories } from "@/app/services/categories";

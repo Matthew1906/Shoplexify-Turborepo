@@ -1,7 +1,7 @@
 import { Metadata } from "next";
 import { Suspense } from "react";
 import { roboto_regular } from "@/app/lib/font";
-import { adminMetric, adminOrderMetrics, adminOrdersResponse, adminSearchParams, Product } from "@/app/lib/interface";
+import { adminMetric, adminOrderMetrics, adminOrdersResponse, adminSearchParams, Product } from "@repo/interface";
 import { getMetrics, getOrderMetrics, getTopProducts, getTransactions } from "@/app/services/admin";
 import { Chart, Metrics, OrderTable, ProductList } from "./ui";
 import { getServerSession } from "next-auth";

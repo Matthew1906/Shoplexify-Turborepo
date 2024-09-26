@@ -1,7 +1,7 @@
 import Image from "next/image";
 import { MdStar } from "react-icons/md";
 import { roboto_semibold } from "@/app/lib/font";
-import { transactionHistoryDetails } from "@/app/lib/interface";
+import { transactionHistoryDetails } from "@repo/interface";
 import { currencyString, popularityString } from "@/app/lib/string";
 
 const TransactionItem = ({item}:{item:transactionHistoryDetails})=>{

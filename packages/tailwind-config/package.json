@@ -1,0 +1,21 @@
+{
+  "name": "@repo/tailwind-config",
+  "version": "1.0.0",
+  "description": "Tailwind configuration for Shoplexify turborepo",
+  "main": "tailwind.config.ts",
+  "exports": {
+    ".": "./tailwind.config.ts"
+  },
+  "keywords": [
+    "TailwindCSS",
+    "Turborepo"
+  ],
+  "author": "Matthew1906",
+  "license": "ISC",
+  "dependencies": {
+    "tailwindcss": "^3.4.1"
+  },
+  "devDependencies": {
+    "@repo/typescript-config": "workspace:*"
+  }
+}

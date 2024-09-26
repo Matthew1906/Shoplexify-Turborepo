@@ -4,7 +4,7 @@ import { headers } from "next/headers";
 import { 
     productMutationResponse, productResponse, 
     productsResponse, searchParams 
-} from "@/app/lib/interface";
+} from "@repo/interface";
 import { revalidatePath, revalidateTag } from "next/cache";
 
 export const createProduct = async(formData: FormData):Promise<productMutationResponse|undefined>=>{

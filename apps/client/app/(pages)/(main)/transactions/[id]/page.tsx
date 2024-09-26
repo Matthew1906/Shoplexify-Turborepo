@@ -1,7 +1,7 @@
 import { Metadata } from "next";
 import { notFound } from "next/navigation";
 import { roboto_bold, roboto_regular } from "@/app/lib/font";
-import { transactionHistoryDetails, transactionHistoryResponse } from "@/app/lib/interface";
+import { transactionHistoryDetails, transactionHistoryResponse } from "@repo/interface";
 import { dateString } from "@/app/lib/string";
 import { getTransactionHistory } from "@/app/services/transactions";
 import { TransactionItem, TransactionSummary } from "./ui";

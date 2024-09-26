@@ -1,0 +1,19 @@
+{
+  "name": "@repo/interface",
+  "version": "1.0.0",
+  "description": "Interface definitions for Shoplexify turborepo",
+  "main": "src/index.ts",
+  "exports":{
+    ".":"./src/index.ts"
+  },
+  "keywords": ["Typescript", "Turborepo"],
+  "author": "Matthew1906",
+  "license": "ISC",
+  "devDependencies": {
+    "@repo/eslint-config": "workspace:*",
+    "@repo/typescript-config": "workspace:*",
+    "@repo/database":"workspace:*",
+    "eslint": "^8.57.0",
+    "typescript": "^5.3.3"
+  }
+}

@@ -4,7 +4,7 @@ import { KeyboardEvent, useState } from "react";
 import { MdSearch } from "react-icons/md";
 import { TextButton } from "@/app/components/buttons";
 import { roboto_semibold } from "@/app/lib/font";
-import { address, geolocationResponse } from "@/app/lib/interface";
+import { address, geolocationResponse } from "@repo/interface";
 import { BaseModal, AddressMap }from "@/app/(pages)/(main)/ui";
 
 const SelectAddressModal = (

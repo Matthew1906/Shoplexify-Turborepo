@@ -2,7 +2,7 @@
 
 import { useScreenSize } from "@/app/hooks";
 import { roboto_semibold } from "@/app/lib/font";
-import { adminOrderMetrics } from "@/app/lib/interface";
+import { adminOrderMetrics } from "@repo/interface";
 import { CategoryScale, Chart as ChartConfig, LinearScale, LineElement, PointElement, Title } from "chart.js";
 import { useMemo } from "react";
 import { Line } from "react-chartjs-2";

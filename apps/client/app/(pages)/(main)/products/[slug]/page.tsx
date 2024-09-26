@@ -6,7 +6,7 @@ import { Suspense } from "react";
 import { MdStar } from "react-icons/md";
 import { authOptions } from "@/app/lib/auth";
 import { roboto_light, roboto_regular, roboto_semibold } from "@/app/lib/font";
-import { productResponse, reviewResponse } from "@/app/lib/interface";
+import { productResponse, reviewResponse } from "@repo/interface";
 import { currencyString, popularityString } from "@/app/lib/string";
 import { getProduct } from "@/app/services/products";
 import { getReview } from "@/app/services/reviews";

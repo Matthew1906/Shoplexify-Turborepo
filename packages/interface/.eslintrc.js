@@ -5,13 +5,5 @@ module.exports = {
     parserOptions: {
       project: true,
     },
-    rules: {
-      "turbo/no-undeclared-env-vars": [
-        "error",
-        {
-          allowList: ["IMAGEKIT_PUBLICKEY", "IMAGEKIT_PRIVATEKEY", "IMAGEKIT_URL"],
-        },
-      ],
-    },
   };
   

@@ -3,7 +3,7 @@
 import Image from "next/image";
 import { DropzoneInputProps, DropzoneRootProps } from "react-dropzone";
 import { AiOutlineCloudUpload } from "react-icons/ai";
-import { imageInput } from "@/app/lib/interface";
+import { imageInput } from "@repo/interface";
 
 const ImageInput = (
     { p, image, rootProps, inputProps } : 

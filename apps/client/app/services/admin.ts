@@ -4,7 +4,7 @@ import { headers } from "next/headers";
 import { 
     adminMetric, adminOrderMetrics, 
     adminOrdersResponse, adminSearchParams, Product 
-} from "@/app/lib/interface";
+} from "@repo/interface";
 
 export const getMetrics = async():Promise<adminMetric|undefined>=>{
     try {

@@ -1,7 +1,7 @@
 import { IconType } from "react-icons";
 import { FaCommentDots, FaMoneyBill, FaShoppingBag, FaShoppingCart, FaUserFriends } from "react-icons/fa";
 import { roboto_bold } from "@/app/lib/font";
-import { adminMetric } from "@/app/lib/interface";
+import { adminMetric } from "@repo/interface";
 import { popularityString } from "@/app/lib/string";
 
 const MetricItem = (
