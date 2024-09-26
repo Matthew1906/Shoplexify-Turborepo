@@ -7,7 +7,7 @@ import reviewRouter from "./reviews";
 import transactionRouter from "./transactions";
 import userRouter from "./users";
 
-export default {
+export {
     adminRouter, cartRouter, categoryRouter, loginRouter,
     productRouter, reviewRouter, transactionRouter, userRouter
 }

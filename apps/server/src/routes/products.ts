@@ -4,7 +4,7 @@ import { createProduct, getProduct, getProducts, updateProduct, updateProductSto
 import { admin, auth } from "../middlewares";
 
 const formDataHandler = multer();
-const router = express.Router();
+const router:express.Router = express.Router();
 
 // Get all products
 router.get('/', getProducts);

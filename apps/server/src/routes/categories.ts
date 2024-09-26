@@ -1,7 +1,7 @@
 import express from "express";
 import { getCategories } from "../controllers/categories";
 
-const router = express.Router();
+const router: express.Router = express.Router();
 
 router.get('/', getCategories);
 

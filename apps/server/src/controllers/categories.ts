@@ -1,5 +1,5 @@
 import express from "express";
-import prisma from "../utils/prisma";
+import { prisma } from "@repo/database";
 
 export const getCategories = async(req:express.Request, res:express.Response)=>{
     try{

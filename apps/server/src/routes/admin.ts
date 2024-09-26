@@ -2,7 +2,7 @@ import express from "express";
 import { getMetrics, getOrderMetrics, getTopProducts } from "../controllers/admin";
 import { admin, auth } from "../middlewares";
 
-const router = express.Router();
+const router: express.Router = express.Router();
 
 router.get("/", auth, admin, getMetrics);
 router.get("/products", auth, admin, getTopProducts);

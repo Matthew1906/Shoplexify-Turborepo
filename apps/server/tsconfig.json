@@ -1,10 +1,11 @@
 {
+  "extends": "@repo/typescript-config/base.json",
   "compilerOptions": {
     // Base
     "esModuleInterop": true,
     "skipLibCheck": true,
     "target": "ES2023",
-    "verbatimModuleSyntax": true,
+    // "verbatimModuleSyntax": true,
     "allowJs": true,
     "resolveJsonModule": true,
     "moduleDetection": "force",

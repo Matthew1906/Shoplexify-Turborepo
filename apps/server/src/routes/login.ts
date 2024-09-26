@@ -3,7 +3,7 @@ import multer from "multer";
 import { loginUser } from "../controllers/users";
 
 const formDataHandler = multer();
-const router = express.Router();
+const router: express.Router = express.Router();
 
 router.post('/', formDataHandler.none(), loginUser);
 

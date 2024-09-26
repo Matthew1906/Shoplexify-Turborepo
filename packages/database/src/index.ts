@@ -1,7 +1,7 @@
 import { PrismaClient } from "@prisma/client";
 import { configDotenv } from "dotenv";
 
-configDotenv()
+configDotenv({path:"../.env"});
 
 const getPrismaSingleton = ()=>{
     return new PrismaClient();

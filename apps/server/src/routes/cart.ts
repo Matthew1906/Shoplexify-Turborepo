@@ -4,7 +4,7 @@ import { addOrder, checkoutOrders, deleteOrder, deleteOrders, editOrder, getOrde
 import { auth } from "../middlewares";
 
 const formDataHandler = multer();
-const router = express.Router();
+const router: express.Router = express.Router();
 
 router.get('/', auth, getOrders);
 router.post("/:slug", auth, formDataHandler.none(), addOrder);

@@ -1,6 +1,6 @@
 import express from "express";
 import config from "../config";
-import prisma from "../utils/prisma";
+import { prisma } from "@repo/database";
 
 export const getTransactions = async(req:express.Request, res:express.Response)=>{
     const searchParams = req.query;
