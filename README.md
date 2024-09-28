@@ -1,8 +1,8 @@
-# Shoplexify - Next.js
+# Shoplexify
 
 #### This is a simple online shop application, made using [Next.js](https://nextjs.org/) and [Express.js](https://expressjs.com/) build using [Turborepo](https://turbo.build/).
 
-#### The project is simply the combination of the 2 previous projects: [Shoplexify-Next.js](https://github.com/Matthew1906/Shoplexify-Next.js) and [Shoplexify-Express.js](https://github.com/Matthew1906/Shoplexify-Express.js) combined into a Turborepo.
+#### The project is simply the combination of the 2 previous projects: [Shoplexify-Next.js](https://github.com/Matthew1906/Shoplexify-Next.js) and [Shoplexify-Express.js](https://github.com/Matthew1906/Shoplexify-Express.js) combined into a Monorepo.
 
 #### I used [NextAuth](https://next-auth.js.org/) for authentication and authorization, [ImageKit](https://imagekit.io/) to store images, [Tailwind CSS](https://tailwindcss.com/) for styling, and [Prisma ORM](https://www.prisma.io/orm) for database management.
 
