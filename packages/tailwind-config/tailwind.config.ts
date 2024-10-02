@@ -1,11 +1,7 @@
 import type { Config } from "tailwindcss";
 
 const config: Omit<Config, "content"> = {
-  content: [
-    "./pages/**/*.{js,ts,jsx,tsx,mdx}",
-    "./components/**/*.{js,ts,jsx,tsx,mdx}",
-    "./app/**/*.{js,ts,jsx,tsx,mdx}",
-  ],
+  mode:"jit",
   theme: {
     extend: {
       backgroundImage: {
@@ -32,7 +28,10 @@ const config: Omit<Config, "content"> = {
     {
       pattern: /border-(green|blue|yellow|red|navy-blue|black|white)/
     },
-    'h-60'
+    'h-60',
+    'z-50',
+    'bg-transparent',
+    'overflow-y-auto'
   ],
   plugins: [],
 };

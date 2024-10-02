@@ -38,22 +38,14 @@ export const createProduct = async(req:express.Request, res:express.Response)=>{
                     price: parsedData.data.price,
                     stock: parsedData.data.stock,
                     image_url: image,
-                    slug: slug
+                    slug: slug,
+                    product_categories:{
+                        create:categories.map((category:string)=>(
+                            { categories:{ connect:{ slug: category } } }
+                        ))
+                    }
                 }
             })
-            await Promise.all(categories.map(async(category:string)=>{
-                const categoryFromDB = await prisma.categories.findFirst({
-                    where:{slug:category.toString()}
-                })
-                if(categoryFromDB){
-                    await prisma.product_categories.create({
-                        data:{
-                            category_id: categoryFromDB.id,
-                            product_id: newProduct.id
-                        }
-                    })
-                }
-            }))
             return res.status(201).json({ status:true, slug:newProduct.slug })
         } else if (parsedData.error){
             return res.status(422).json({ status:false, error:parsedData.error.flatten().fieldErrors });
@@ -293,6 +285,9 @@ export const updateProduct = async(req:express.Request, res:express.Response)=>{
                 return res.status(500).json({ status:false, error:{ image:"Unexpected error occurred, please retry!" } });
             }
             const { imageId, image } = await uploadImage(encodedImage??"", newSlug, '');
+            await prisma.product_categories.deleteMany({
+                where:{ product_id: productExist.id }
+            })
             const updatedProduct = await prisma.products.update({
                 where:{ id:productExist.id },
                 data:{
@@ -300,25 +295,14 @@ export const updateProduct = async(req:express.Request, res:express.Response)=>{
                     description: parsedData.data.description,
                     price: parsedData.data.price,
                     image_url: image,
-                    slug: newSlug
+                    slug: newSlug,
+                    product_categories:{
+                        create:categories.map((category:string)=>(
+                            { categories:{ connect:{ slug: category } } }
+                        ))
+                    }
                 }
             })
-            await prisma.product_categories.deleteMany({
-                where:{ product_id: updatedProduct.id }
-            })
-            await Promise.all(categories.map(async(category:string)=>{
-                const categoryFromDB = await prisma.categories.findFirst({
-                    where:{slug:category.toString()}
-                })
-                if(categoryFromDB){
-                    await prisma.product_categories.create({
-                        data:{
-                            category_id: categoryFromDB.id,
-                            product_id: updatedProduct.id
-                        }
-                    })
-                }
-            }))
             return res.status(200).json({ status:true, slug:updatedProduct.slug })
         } else if (parsedData.error){
             return res.status(422).json({ status:false, error:parsedData.error.flatten().fieldErrors });
