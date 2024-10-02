@@ -1,7 +1,7 @@
 'use client'
 
-import { roboto_semibold } from "@/app/lib/font"
 import { MdStar } from "react-icons/md"
+import { roboto_semibold } from "@/app/lib/font"
 
 const ReviewItem = ({name, rating, body}:{name:string, rating:number, body:string})=>{
     return <div className="flex flex-col items-start justify-center gap-2 text-xs mb-4 lg:text-base">

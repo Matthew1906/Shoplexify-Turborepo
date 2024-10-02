@@ -1,12 +1,12 @@
 'use client'
 
 import Link from "next/link";
-import { signIn } from "next-auth/react";
 import { useRouter } from "next/navigation";
 import { FormEvent, useRef, useState } from "react";
-import { TextButton } from "@repo/ui/buttons";
 import { roboto_bold, roboto_regular, roboto_semibold } from "@/app/lib/font";
+import { loginUser } from "@/app/services/auth";
 import { authResponse } from "@repo/interface";
+import { TextButton } from "@repo/ui/buttons";
   
 export default function Login(){
     const [ errorStatus, setErrorStatus ] = useState<authResponse>();
@@ -15,28 +15,15 @@ export default function Login(){
     const handleSubmit = async(event:FormEvent<HTMLFormElement>)=>{
         event.preventDefault();
         const formData = new FormData(event.currentTarget);
-        const url = `${process.env.SERVER_URL}/api/login`;
-        const response = await fetch(url, {
-            method: 'POST',
-            body: formData
-        });
-        const data = await response.json();
-        setErrorStatus({status:data.status, error:data?.error, message:data?.message});
-        if(data.status){
-            signIn('credentials', {
-                email: data.user.email,
-                password: formData.get('password'),
-                name: data.user.name,
-                dob: data.user.dob,
-                id: data.user.id,
-                redirect: false,
-            }).then((res)=>{
+        loginUser(formData).then(data=>{
+            setErrorStatus({status:data.status, error:data?.error, message:data?.message});
+            if(data.status){    
                 router.push('/');
                 router.refresh();
-            })
-        } else {
-            formRef?.current?.reset();
-        }
+            } else {
+                formRef?.current?.reset();
+            }
+        })
     }
     return <main className='p-5 w-full flex justify-center items-start'>
         <form onSubmit={handleSubmit} ref={formRef} className="p-10 bg-white border-1 border-black rounded-lg w-3/4 md:w-1/2 xl:w-1/4 flex-center flex-col gap-2 drop-shadow-md">

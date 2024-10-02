@@ -1,7 +1,7 @@
 import Image from "next/image";
 import background from "@/public/auth-bg.jpg"
-import { Header } from "@/app/components/partials";
 import { Metadata } from "next";
+import { Header } from "@/app/components/partials";
 
 export const metadata: Metadata = {
   title: "Login/Register - Shoplexify",

@@ -1,6 +1,7 @@
 import express from "express";
 import { prisma } from "@repo/database";
 import { z } from "zod";
+import { signJWT } from "@repo/jwt";
 import { comparePassword, generatePassword } from "@repo/password-utils";
 
 export const loginUser = async(req:express.Request, res:express.Response)=>{
@@ -19,7 +20,8 @@ export const loginUser = async(req:express.Request, res:express.Response)=>{
             }
             const isSamePassword = await comparePassword(password?.toString()??"", user.password);
             if(isSamePassword){
-                return res.status(200).json({ status:true, user:user, message:"Login Successful" });
+                const token = signJWT(user.email, user.name, user.id, user.dob);
+                return res.status(200).json({ status:true, token:token, message:"Login Successful" });
             } else {
                 return res.status(401).json({ status:false, message:"Password doesnt match" });
             }

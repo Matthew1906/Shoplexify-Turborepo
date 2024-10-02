@@ -2,12 +2,12 @@
 
 import RatingInput from "./RatingInput";
 import { useRouter } from "next/navigation";
-import { reviews } from "@prisma/client";
 import { FormEvent, useRef, useState } from "react";
-import { TextButton } from "@repo/ui/buttons";
 import { roboto_semibold } from "@/app/lib/font";
-import { BaseModal } from "@repo/ui/utils";
 import { createReview } from "@/app/services/reviews";
+import { reviews } from "@repo/database";
+import { TextButton } from "@repo/ui/buttons";
+import { BaseModal } from "@repo/ui/utils";
 
 const ReviewModal = (
     { slug, show, onHideModal, review } : 

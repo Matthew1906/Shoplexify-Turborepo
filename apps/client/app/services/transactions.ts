@@ -1,13 +1,13 @@
 'use server'
 
-import { headers } from "next/headers";
-import { transactionHistoryResponse, transactionResponse } from "@repo/interface";
 import { revalidateTag } from "next/cache";
+import { generateHeader } from "@/app/lib/auth";
+import { transactionHistoryResponse, transactionResponse } from "@repo/interface";
 
 export const getTransactions = async():Promise<Array<transactionResponse> | undefined>=>{
     try {
         const url = `${process.env.SERVER_URL}/api/transactions`;
-        const header = new Headers(headers());
+        const header = await generateHeader();
         const response = await fetch(url, {method:'GET', headers:header, next:{ tags:['transactions'] }});
         const jsonResponse = await response.json();
         return jsonResponse.data;
@@ -19,7 +19,7 @@ export const getTransactions = async():Promise<Array<transactionResponse> | unde
 export const getTransactionHistory = async (transactionId:number):Promise<transactionHistoryResponse|undefined>=>{
     try{
         const url = `${process.env.SERVER_URL}/api/transactions/${transactionId}`;
-        const header = new Headers(headers());
+        const header = await generateHeader();
         const response = await fetch(url, {method:'GET', headers:header, next:{ tags:['transactions'] } });
         const jsonResponse = await response.json();
         return jsonResponse;
@@ -31,7 +31,7 @@ export const getTransactionHistory = async (transactionId:number):Promise<transa
 export const updateTransactionStatus = async(transactionId:number)=>{
     try{
         const url = `${process.env.SERVER_URL}/api/transactions/${transactionId}`;
-        const header = new Headers(headers());
+        const header = await generateHeader();
         const response = await fetch(url, {method:'PATCH', headers:header});
         const jsonResponse = await response.json();
         revalidateTag("transactions")

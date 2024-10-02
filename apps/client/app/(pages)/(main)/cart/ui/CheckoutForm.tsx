@@ -3,11 +3,11 @@
 import SelectAddressModal from "./SelectAddressModal";
 import { useRouter } from "next/navigation";
 import { FormEvent, useMemo, useState } from "react";
-import { TextButton } from "@repo/ui/buttons";
-import { address, orderResponse } from "@repo/interface";
 import { currencyString } from "@/app/lib/string";
-import { AddressMap } from "@repo/maps";
 import { checkoutOrders } from "@/app/services/orders";
+import { address, orderResponse } from "@repo/interface";
+import { AddressMap } from "@repo/maps";
+import { TextButton } from "@repo/ui/buttons";
 
 const CheckoutForm = ({orders}:{orders:Array<orderResponse>|undefined})=>{
     const totalPrice = useMemo(()=>{

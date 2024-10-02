@@ -1,16 +1,14 @@
 'use server'
 
-import { headers } from "next/headers";
+import { generateHeader } from "@/app/lib/auth";
 
 export const updateProfile = async(formData:FormData)=>{
     try {
         const url = `${process.env.SERVER_URL}/api/users`;
-        const cookieHeader = new Headers();
-        const cookies = headers().get("cookie")??"";
-        cookieHeader.set("cookie", cookies);
+        const header = await generateHeader();
         const response = await fetch(url, {
             method: 'PATCH',
-            headers: cookieHeader,
+            headers: header,
             body: formData,
         });
         const data = await response.json();

@@ -1,7 +1,7 @@
 import { Metadata } from "next";
 import { roboto_bold, roboto_regular } from "@/app/lib/font";
-import { orderResponse } from "@repo/interface";
 import { getOrders } from "@/app/services/orders";
+import { orderResponse } from "@repo/interface";
 import { CheckoutForm, ClearCartButton, OrderItem } from "./ui";
 
 export const metadata: Metadata = {

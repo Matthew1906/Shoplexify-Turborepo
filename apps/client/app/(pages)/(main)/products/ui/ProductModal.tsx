@@ -2,16 +2,16 @@
 
 import ImageInput from "./ImageInput";
 import { useRouter } from "next/navigation";
-import { categories } from "@prisma/client";
 import { FormEvent, useEffect, useRef, useState } from "react";
-import { TextButton } from "@repo/ui/buttons";
 import { useImage } from "@/app/hooks";
 import { roboto_regular } from "@/app/lib/font";
-import { productMutationData, productMutationResponse } from "@repo/interface";
 import { base64String } from "@/app/lib/string";
-import { BaseModal } from "@repo/ui/utils";
 import { getCategories } from "@/app/services/categories";
 import { createProduct, updateProduct } from "@/app/services/products";
+import { categories } from "@repo/database";
+import { productMutationData, productMutationResponse } from "@repo/interface";
+import { TextButton } from "@repo/ui/buttons";
+import { BaseModal } from "@repo/ui/utils";
 
 const ProductModal = (
     { show, onHideModal, product } : 

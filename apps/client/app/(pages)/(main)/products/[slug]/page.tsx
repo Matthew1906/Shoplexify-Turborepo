@@ -1,15 +1,14 @@
 import Image from "next/image";
 import { Metadata } from "next";
-import { getServerSession } from "next-auth";
 import { notFound } from "next/navigation";
 import { Suspense } from "react";
 import { MdStar } from "react-icons/md";
-import { authOptions } from "@/app/lib/auth";
+import { getToken } from "@/app/lib/auth";
 import { roboto_light, roboto_regular, roboto_semibold } from "@/app/lib/font";
-import { productResponse, reviewResponse } from "@repo/interface";
 import { currencyString, popularityString } from "@/app/lib/string";
 import { getProduct } from "@/app/services/products";
 import { getReview } from "@/app/services/reviews";
+import { productResponse, reviewResponse } from "@repo/interface";
 import { ReviewButton, ReviewItem, StockSection, UpdateProductButton } from "./ui";
 import { OrderSection } from "../../../../components/ui";
 
@@ -30,7 +29,7 @@ export default async function ProductPage(
     const productData: Promise<productResponse | undefined> = getProduct(params.slug);
     const reviewData: Promise<reviewResponse | undefined> = getReview(params.slug);
     const [ product, review ] = await Promise.all([ productData, reviewData ]);
-    const session = await getServerSession(authOptions);
+    const token = await getToken();
     if(!product?.status){
         return notFound();
     }
@@ -64,10 +63,10 @@ export default async function ProductPage(
                     {product.stock<=0 && <div className='p-2 rounded-lg text-white font-semibold bg-red'>SOLD OUT</div>}
                 </div>
                 <div>
-                    { session && session.role == 'user' && <OrderSection product={product?.slug} 
+                    { token && token.role == 'user' && <OrderSection product={product?.slug} 
                         stock={product?.stock??0} price={product.price}
                     /> }
-                    { session?.role == 'admin' && 
+                    { token?.role == 'admin' && 
                     <>
                         <StockSection product={product.slug} stock={product.stock} />
                         <UpdateProductButton product={{
@@ -85,7 +84,7 @@ export default async function ProductPage(
                 <section id="product-reviews" className="mt-5 lg:mt-10 border-t-2 border-b-2 border-navy-blue py-5 lg:py-10">
                     <div className="flex items-center gap-5 mb-5">
                         <p className={`${roboto_semibold.className} lg:text-xl`}>Reviews:</p>
-                        { session && session.role == 'user' && review?.hasPurchased && <ReviewButton review={review?.review} slug={product?.slug}/> }
+                        { token && token.role == 'user' && review?.hasPurchased && <ReviewButton review={review?.review} slug={product?.slug}/> }
                     </div>
                     <div className="px-2 text-lg">
                         {product.reviews?.map((review)=>{

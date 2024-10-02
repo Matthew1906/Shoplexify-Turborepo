@@ -31,7 +31,16 @@ const config: Omit<Config, "content"> = {
     'h-60',
     'z-50',
     'bg-transparent',
-    'overflow-y-auto'
+    'overflow-y-auto',
+    'fixed', 'relative',
+    'top-0',
+    'left-0',
+    {
+      pattern: /animate-\[.*\]/,
+    },
+    {
+      pattern: /max-h-\[.*\]/,
+    }
   ],
   plugins: [],
 };

@@ -1,12 +1,12 @@
 import { Metadata } from "next";
 import { notFound } from "next/navigation";
+import { getToken } from "@/app/lib/auth";
 import { roboto_bold, roboto_regular } from "@/app/lib/font";
-import { transactionHistoryDetails, transactionHistoryResponse } from "@repo/interface";
 import { dateString } from "@/app/lib/string";
 import { getTransactionHistory } from "@/app/services/transactions";
+import { transactionHistoryDetails, transactionHistoryResponse } from "@repo/interface";
 import { TransactionItem, TransactionSummary } from "./ui";
-import { getServerSession } from "next-auth";
-import { authOptions } from "@/app/lib/auth";
+
 
 export async function generateMetadata(
     {params}:{params:{id:number}}
@@ -21,7 +21,7 @@ export async function generateMetadata(
 
 export default async function TransactionHistoryPage({params}:{params:{id:number}}){
     const id = params.id;
-    const session = await getServerSession(authOptions);
+    const token = await getToken();
     const transactionHistory: transactionHistoryResponse|undefined = await getTransactionHistory(id);
     if(!transactionHistory?.status){
         return notFound();
@@ -43,7 +43,7 @@ export default async function TransactionHistoryPage({params}:{params:{id:number
             addressString={transactionHistory?.address}
             status={transactionHistory?.transaction_status}
             id={id}
-            isAdmin={session?.role=='admin'}
+            isAdmin={token?.role=='admin'}
         />
     </main>
 }

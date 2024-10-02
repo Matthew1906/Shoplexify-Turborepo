@@ -1,12 +1,11 @@
 import Image from "next/image";
-import { authOptions } from "@/app/lib/auth";
+import { Metadata } from "next";
+import { getToken } from "@/app/lib/auth";
 import { roboto_bold, roboto_regular } from "@/app/lib/font";
-import { transactionResponse } from "@repo/interface";
 import { dateString } from "@/app/lib/string";
 import { getTransactions } from "@/app/services/transactions";
-import { getServerSession } from "next-auth";
+import { transactionResponse } from "@repo/interface";
 import { ProfileForm, TransactionCard } from "./ui";
-import { Metadata } from "next";
 
 export const dynamic = 'force-dynamic';
 
@@ -15,7 +14,8 @@ export const metadata: Metadata = {
 }
 
 export default async function ProfilePage(){
-    const profile = await getServerSession(authOptions);
+    // const profile = await getServerSession(authOptions);
+    const profile = await getToken();
     const transactions: Array<transactionResponse> | undefined = await getTransactions();
     return <main className={`lg:grid lg:grid-cols-2 lg:gap-5 p-5 lg:p-10 ${roboto_regular.className}`}>
         <section id="profile-info">
@@ -29,7 +29,7 @@ export default async function ProfilePage(){
                 <div className="lg:text-xl col-span-2">
                     <h5 className="font-bold mb-2">{profile?.name}</h5>
                     <p className="mb-2 underline">{profile?.email}</p>
-                    {profile?.dob!=="None" && <p className="font-semibold">{profile?.dob!=='null' ? dateString(new Date(profile?.dob??"")):"No DOB yet"}</p>}
+                    {profile?.dob && <p className="font-semibold">{profile?.dob? dateString(new Date(profile?.dob??"")):"No DOB yet"}</p>}
                 </div>
             </div>
             <ProfileForm dob={new Date(profile?.dob??"")} />

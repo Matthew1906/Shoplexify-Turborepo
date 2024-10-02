@@ -1,9 +1,9 @@
 'use client'
 
 import { useState } from "react";
-import { ProductModal } from "../../ui";
 import { productMutationData } from "@repo/interface";
 import { TextButton } from "@repo/ui/buttons"
+import { ProductModal } from "../../ui";
 
 const UpdateProductButton = ({product}:{product:productMutationData})=>{
     const [ showProductForm, setShowProductForm ] = useState<boolean>(false);

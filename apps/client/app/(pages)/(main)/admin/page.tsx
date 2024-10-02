@@ -4,9 +4,8 @@ import { roboto_regular } from "@/app/lib/font";
 import { adminMetric, adminOrderMetrics, adminOrdersResponse, adminSearchParams, Product } from "@repo/interface";
 import { getMetrics, getOrderMetrics, getTopProducts, getTransactions } from "@/app/services/admin";
 import { Chart, Metrics, OrderTable, ProductList } from "./ui";
-import { getServerSession } from "next-auth";
-import { authOptions } from "@/app/lib/auth";
 import { notFound } from "next/navigation";
+import { getToken } from "@/app/lib/auth";
 
 export const dynamic = 'force-dynamic';
 
@@ -15,8 +14,8 @@ export const metadata: Metadata = {
 }
 
 export default async function AdminPage({searchParams}:{searchParams?:adminSearchParams}){
-    const session = await getServerSession(authOptions);
-    if(session?.role != 'admin'){
+    const token = await getToken();
+    if(token?.role != 'admin'){
         return notFound();
     }
     // Orders -> orders table containing all orders and for chart

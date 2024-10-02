@@ -1,8 +1,8 @@
 'use client'
 
 import ReviewModal from "./ReviewModal";
-import { reviews } from "@prisma/client";
 import { useState } from "react";
+import { reviews } from "@repo/database";
 import { TextButton } from "@repo/ui/buttons";
 
 const ReviewButton = ({slug, review}:{slug:string, review?:reviews|null})=>{

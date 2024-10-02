@@ -1,11 +1,11 @@
 'use client'
 
-import { roboto_regular } from "@/app/lib/font";
-import { getCategories } from "@/app/services/categories";
-import { categories } from "@prisma/client";
 import { useRouter, useSearchParams } from "next/navigation";
 import { FormEvent, KeyboardEvent, useEffect, useRef, useState } from "react";
 import { MdSearch } from "react-icons/md";
+import { roboto_regular } from "@/app/lib/font";
+import { getCategories } from "@/app/services/categories";
+import { categories } from "@repo/database";
 
 const SearchBar = ()=>{
     const [ categories, setCategories ] = useState<Array<categories>|undefined>([])

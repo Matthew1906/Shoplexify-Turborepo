@@ -1,21 +1,19 @@
 'use server'
 
-import { headers } from "next/headers";
+import { revalidatePath, revalidateTag } from "next/cache";
+import { generateHeader } from "@/app/lib/auth";
 import { 
     productMutationResponse, productResponse, 
     productsResponse, searchParams 
 } from "@repo/interface";
-import { revalidatePath, revalidateTag } from "next/cache";
 
 export const createProduct = async(formData: FormData):Promise<productMutationResponse|undefined>=>{
     try {
         const url = `${process.env.SERVER_URL}/api/products`;
-        const cookieHeader = new Headers();
-        const cookies = headers().get("cookie")??"";
-        cookieHeader.set("cookie", cookies);
+        const header = await generateHeader();
         const response = await fetch(url, { 
             method:'POST', 
-            headers:cookieHeader, 
+            headers: header, 
             body: formData
         });
         const jsonResponse = await response.json();
@@ -41,9 +39,6 @@ export const getProducts = async(searchParams: searchParams|null): Promise<produ
         if(searchParams?.maxPrice){
             editableParams.set("maxPrice", searchParams?.maxPrice.toString());
         } 
-        // if(searchParams?.rating){
-        //     editableParams.set("rating", searchParams?.rating);
-        // } 
         if(searchParams?.sortBy){
             editableParams.set("sortBy", searchParams?.sortBy);
         } 
@@ -74,12 +69,10 @@ export const getProduct = async(slug:string):Promise<productResponse|undefined> 
 export const updateProduct = async(slug:string, formData: FormData):Promise<productMutationResponse|undefined>=>{
     try {
         const url = `${process.env.SERVER_URL}/api/products/${slug}`;
-        const cookieHeader = new Headers();
-        const cookies = headers().get("cookie")??"";
-        cookieHeader.set("cookie", cookies);
+        const header = await generateHeader();
         const response = await fetch(url, { 
             method:'PUT', 
-            headers:cookieHeader, 
+            headers: header, 
             body: formData
         });
         const jsonResponse = await response.json();
@@ -94,14 +87,12 @@ export const updateProduct = async(slug:string, formData: FormData):Promise<prod
 export const updateProductStock = async(slug:string, stock:number)=>{
     try {
         const url = `${process.env.SERVER_URL}/api/products/${slug}`;
-        const cookieHeader = new Headers();
-        const cookies = headers().get("cookie")??"";
-        cookieHeader.set("cookie", cookies);
+        const header = await generateHeader();
         const formData = new FormData();
         formData.append('stock', stock.toString());
         const response = await fetch(url, { 
             method:'PATCH', 
-            headers:cookieHeader, 
+            headers: header, 
             body: formData
         });
         const jsonResponse = await response.json();

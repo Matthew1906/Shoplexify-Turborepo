@@ -2,17 +2,19 @@
 
 import Link from "next/link";
 import SearchBar from "./search_bar";
-import { signOut } from "next-auth/react";
+import { useRouter } from "next/navigation";
 import { MdFace, MdOutlineInsertChart, MdOutlineWarehouse, MdShoppingCart } from "react-icons/md";
+import { useScreenSize } from "@/app/hooks";
+import { signOut } from "@/app/services/auth";
 import { IconButton, TextButton } from "@repo/ui/buttons";
 import { LogoIcon, MenuIcon } from "../icons";
-import { useScreenSize } from "@/app/hooks";
 
 const Header = (
     { isAuth=false, isLoggedIn=true, username, isAdmin=false }:
     { isAuth:boolean, isLoggedIn:boolean, username?:string, isAdmin:boolean }
 )=>{
     const screenSize = useScreenSize();
+    const router = useRouter()
     return <header className="bg-navy-blue py-2 md:py-4 lg:py-8 px-3 md:px-5 lg:px-10 flex flex-col lg:flex-row justify-between items-center">
         <div className={`flex ${!isAuth?"flex-grow justify-around":"justify-start"} flex-col lg:flex-row items-center gap-2 md:gap-4 xl:gap-8`}>
             <LogoIcon className={screenSize==1?"w-40 h-20":"w-32 h-16"}/>
@@ -44,7 +46,9 @@ const Header = (
                     <Link href="/profile">
                         <IconButton Icon={MdFace} text={username??"Jane Doe"} theme="primary"/> 
                     </Link>
-                    <TextButton text="Logout" theme='secondary' onClick={()=>signOut({callbackUrl:'/'})}/>
+                    <TextButton text="Logout" theme='secondary' onClick={()=>{
+                        signOut().then(()=>router.refresh())
+                    }}/>
                 </>
                 : <>
                     <Link href="/login">

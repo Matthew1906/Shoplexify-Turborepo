@@ -195,3 +195,10 @@ export interface adminOrderMetrics extends orderMetrics {
     status: boolean
 }
 
+export interface authToken {
+    id:number,
+    email: string,
+    name: string,
+    role: string,
+    dob?: Date,
+}

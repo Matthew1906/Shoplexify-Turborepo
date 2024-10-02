@@ -3,9 +3,9 @@
 import { useRouter } from "next/navigation";
 import { useState } from "react";
 import { FaMinus, FaPlus } from "react-icons/fa";
-import { TextButton } from "@repo/ui/buttons";
 import { roboto_regular } from "@/app/lib/font";
 import { updateProductStock } from "@/app/services/products";
+import { TextButton } from "@repo/ui/buttons";
 
 const StockSection = ({ product, stock}: { product:string, stock:number }) =>{
     const router = useRouter();

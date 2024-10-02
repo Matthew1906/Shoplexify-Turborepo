@@ -1,22 +1,22 @@
 import express from "express";
-import config from "../config";
-import { decode } from "next-auth/jwt";
+import { decodeJWT, verifyJWT } from "@repo/jwt";
 
 export default async function (req:express.Request, res:express.Response, next:express.NextFunction){
     try {
-        const cookie = req.headers.cookie
-        const sessionToken = cookie?.substring(cookie.indexOf("session-token=")).replace("session-token=","");
-        if (!sessionToken) {
+        const authorization = req.headers.authorization
+        if (!authorization) {
             return res.status(401).json({ message: 'No token provided' });
         }
-        const decoded = await decode({
-            token: sessionToken,
-            secret: config.NEXTAUTH_SECRET,
-        });
-        if(!decoded){
+        const token = authorization.split(" ")[1]??"";
+        const isVerified = verifyJWT(token);
+        if(!isVerified){
             return res.status(401).json({message:"Unauthorized"});
         }
-        req.user = { id:decoded.id, role:decoded.role };
+        const decodedToken = decodeJWT(token);
+        if(!decodedToken){
+            return res.status(401).json({message:"Unauthorized"});
+        }
+        req.user = { id:decodedToken.id.toString(), role:decodedToken.role };
         next();
     } catch(error) {
         return res.status(401).json({message:"Unauthorized"});

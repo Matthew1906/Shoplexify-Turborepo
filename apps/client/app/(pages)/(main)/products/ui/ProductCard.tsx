@@ -4,8 +4,8 @@ import Image from "next/image";
 import Link from "next/link";
 import { MdStar } from "react-icons/md";
 import { roboto_light, roboto_semibold } from "@/app/lib/font";
-import { Product } from "@repo/interface"
 import { currencyString, popularityString, trimString } from "@/app/lib/string";
+import { Product } from "@repo/interface"
 
 const ProductCard = ({product}:{product:Product})=>{
     return <Link href={`/products/${product.slug}`} prefetch>

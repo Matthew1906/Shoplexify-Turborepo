@@ -1,11 +1,11 @@
 'use client'
 
-import { useScreenSize } from "@/app/hooks";
-import { roboto_semibold } from "@/app/lib/font";
-import { adminOrderMetrics } from "@repo/interface";
 import { CategoryScale, Chart as ChartConfig, LinearScale, LineElement, PointElement, Title } from "chart.js";
 import { useMemo } from "react";
 import { Line } from "react-chartjs-2";
+import { useScreenSize } from "@/app/hooks";
+import { roboto_semibold } from "@/app/lib/font";
+import { adminOrderMetrics } from "@repo/interface";
 
 ChartConfig.register(CategoryScale, LinearScale, PointElement, LineElement, Title);
 
